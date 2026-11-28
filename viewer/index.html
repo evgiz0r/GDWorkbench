@@ -2168,9 +2168,10 @@ function draw() {
   // the game look: colours and zoom at this moment (zoom 0.7 = see more, everything smaller)
   LS = look ? GD.LOOK.stateAt(L.look, k / P.TPS) : null;
   let objsNow;
-  // GD art: every visual trigger (lib/vfx.js) -- spawn-fired colours, pulses, alpha, moves incl. the
+  // every visual trigger (lib/vfx.js), in the GD-art look AND the art-free game look (before 2026-11-28 only with GD art, so
+  // cloud renders showed no camera / player locks: tools/artlab.js) -- spawn-fired colours, pulses, alpha, moves incl. the
   // parallax ones locked to the player, rotations, toggles, camera offset; objects posed by it
-  if (LS && artOn() && GD.VFX) {
+  if (LS && GD.VFX) {
     if (!L.vfx) { L.vfx = GD.VFX.build(L.level, L.path, L.look); L.vfxDyn = new Set(L.vfx.dynamic); }
     const V = L.vfx;
     LS = GD.VFX.stateAt(V, k / P.TPS, LS);

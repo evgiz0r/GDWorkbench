@@ -529,6 +529,7 @@ Every session works in its own git worktree, but `local/` (never committed) is O
   session): `lib/pixelart.js` (canvas + converter), `tools/pixelart.js <image.png>` (picture -> objects,
   `--max-objects`), `lib/props.js` (`put` / `place` / `list` by name: tree, pumpkin, house, robot, ...;
   spec key `"props"` in make.js), `tools/props.js sheet | level`. Test: `node tests/pixelart.js`.
+- **Art -> GD objects, and moving it** (ART.md "Creatures and animation"): `tools/svg2gd.js` (any SVG -> exact GD shapes: triangles as pairs of right triangles 693, disks, gradient bands; `<g id>` parts for triggers; test `node tests/svg2gd.js`), `tools/artlab.js raster | convert | demon | level` (original art in `art/src/`, method comparison, hand-built demon, the animated lab `levels/lab/gdlm_art_lab.gdlvl`), `lib/paintfit.js` `target.mask` (a PNG sprite fitted with shapes kept inside it).
 - **The user's drawings -> levels** (SKETCH.md: reading a drawing into a spec, then making it fair;
   the GDLM 46 lessons).
 - **The whiteboard: draw a level freehand** (DRAW.md: no grid, pens for ground / blocks / hazards / deco / "I jump here" /

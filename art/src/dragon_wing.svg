@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <!-- Original art (Claude, 2026-11-28): the dragon's near wing, same frame as dragon_body.svg; it turns about (160,112). -->
+  <path d="M160 112 L200 10 L214 40 L262 4 L258 46 L310 30 L290 76 L330 84 L270 116 C230 124 190 122 160 112 Z" fill="#8a2416"/>
+  <path d="M160 112 L200 10 M200 10 L214 40 L262 4 M214 40 L258 46 L310 30 M258 46 L290 76 L330 84 M214 40 L230 118 M258 46 L262 116" stroke="#2b0606" stroke-width="6" fill="none" stroke-linejoin="round"/>
+</svg>

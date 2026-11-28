@@ -164,6 +164,42 @@ decides the default (`chKeys`, `ch0`). Write the answer here.
 v2 signature (figures standing on the ground, key 21 only), not v3. The colour test (rows A-J) and the prop test
 (pumpkins A-D) were not played in that recording, so the question is still open.
 
+## Creatures and animation: art -> GD objects, measured (2026-11-28)
+
+Why (Evgeni, for Hellgate's gate ending): "a dragon flying or a demon looking from within the door ... a demon approaches and
+we shut the gate on him ... i cant tell how good we are at taking other art or creating art and translating it to the game".
+Capability test on ORIGINAL art (`art/src/*.svg`, drawn by Claude: a demon face, a dragon body + its near wing as a separate
+file). Private page with every picture and the video: https://claude.ai/artifact/7uLH1fUKwpVsyLqfpXmua8 (notes box per method).
+
+| method | tool | demon objects | look | moves by part? |
+|---|---|---|---|---|
+| hand-built shapes | `tools/artlab.js demon` (`demonShapes`) | 66, 11 channels | bold sticker; few rounds by eye | yes: each part its own group |
+| **SVG -> shapes** | **`tools/svg2gd.js`** | 270 (dragon 173 + wing 31) | exact outlines; gradients as 3 cel bands | yes: `<g id>` = part |
+| PNG -> masked shape fit | `lib/paintfit.js` `target.mask` via `tools/artlab.js convert` | 100 mush, 200 ok, 400 painterly (rmse 9.8) | soft, ragged edge | no (one piece) |
+| PNG -> pixel squares (old) | `tools/pixelart.js` | 56 at 30 px, 150 at 60 px | low-res, stair edges | no |
+
+- **svg2gd**: headless Chromium reads the drawing as drawn (transforms, arcs, computed colours); each filled outline is
+  sampled, simplified (`--tol` px), ear-clipped into triangles, and every triangle becomes TWO right triangles 693 split at
+  the altitude onto its longest side -- any triangle exactly (`node tests/svg2gd.js`). Cost: 2(n-2) objects per n-corner
+  polygon. Circles -> one disk 497; a radial gradient fading to clear -> see-through disks (a glow); linear / radial
+  gradients -> 3 bands (the shape clipped to slabs / inner ellipses); strokes -> bars. Opaque pieces grow 0.6 px to hide
+  seams. Source: ours, the user's drawings, or CC0 / CC-BY SVGs (credit) -- never copyrighted art.
+- **paintfit mask**: `fit({w,h,rgb,mask}, {bg})` keeps shapes inside the sprite (at most `leak` 6% of a shape outside),
+  the empty inside starts as `bg` (the level's sky there), error counted only inside.
+- **Cost**: a whole creature is 66-400 objects; rated 2.2 levels carry 17-22 deco objects a block, so one creature is
+  about one screen of normal deco.
+- **Animation** (`node tools/artlab.js level` -> `levels/lab/gdlm_art_lab.gdlvl`, "GDLM art lab", 16 s auto, 637 objects,
+  63 triggers, tools/effects.js triggers): the dragon locked to the camera and moved across, its wing turning about a hinge
+  object (a 211 at scale 0.01 in the dragon's group); eyes (alpha) before the face (alpha + move), head turns about a pivot,
+  the jaw moves; the gate leaves move shut (ease in), sky + iron colour flash, camera-offset shake (1916), sparks moved out.
+  Render: `node tools/solutions.js <lvl>` first (a saved route, else a ghost camera), then `tools/shoot.js --at ...`.
+- **Not checked in GD yet**: hairline seams between 693 pieces, the glow disks, rotate about a hinge inside a camera-locked
+  group, the 1916 shake. Install the lab only on Evgeni's word.
+- Viewer fix found here: visual triggers (lib/vfx.js: camera / player locks, rotate centres) were applied only in the GD-art
+  look, so art-free and cloud renders drew locked groups scrolling away; now both looks use them.
+- Lesson for art for GD: flat SVG, 2-3 tones per part, moving parts (wing, jaw, eyes) as named groups, strong value
+  contrast against the scene's sky (the test dragon is dark-on-dark: a drawing fault, not the converter's).
+
 ## Open
 
 - GD-art render of the first 18 props (local/props/props_gdart.png, from local/maps/gdlm_prop_test.jpg, 2026-11-23):

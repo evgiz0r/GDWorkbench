@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <!-- Original art for GDWorkbench (Claude, 2026-11-28). A dragon in flight facing left; the near wing is dragon_wing.svg. -->
+  <defs>
+    <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a1712"/><stop offset="1" stop-color="#2b0606"/></linearGradient>
+    <radialGradient id="eye"><stop offset="0" stop-color="#fff6b0"/><stop offset="0.45" stop-color="#ffc21e"/><stop offset="1" stop-color="#ff6a00" stop-opacity="0"/></radialGradient>
+  </defs>
+  <!-- far wing (behind the body, darker) -->
+  <path d="M190 112 L250 30 L262 52 L300 20 L300 50 L338 38 L322 78 L352 82 L300 112 Z" fill="#3a0a08"/>
+  <!-- tail -->
+  <path d="M232 128 C280 140 320 150 350 132 C366 122 378 118 384 124 C372 128 364 140 352 150 C320 172 270 160 226 146 Z" fill="url(#sk)"/>
+  <path d="M376 112 L398 124 L380 140 L384 124 Z" fill="#2b0606"/>
+  <!-- body -->
+  <path d="M110 118 C130 96 180 92 230 108 C250 116 254 140 236 150 C200 166 150 162 120 150 C104 142 100 128 110 118 Z" fill="url(#sk)"/>
+  <!-- belly plates -->
+  <path d="M124 146 C160 160 200 160 232 146 C226 154 196 166 160 162 C140 160 128 154 124 146 Z" fill="#c2452a"/>
+  <!-- legs -->
+  <path d="M150 150 L142 178 L130 186 L150 184 L162 156 Z" fill="#2b0606"/>
+  <path d="M206 152 L214 182 L202 192 L224 188 L220 152 Z" fill="#2b0606"/>
+  <!-- neck + head -->
+  <path d="M118 120 C96 110 80 96 66 96 L40 100 L18 112 L42 116 L60 118 C78 124 96 136 116 140 Z" fill="url(#sk)"/>
+  <path d="M18 112 L6 116 L40 122 L58 120 Z" fill="#4a0d0a"/>
+  <!-- horns -->
+  <path d="M60 98 L82 70 L74 98 Z" fill="#e8d6b0"/>
+  <path d="M48 98 L60 76 L58 100 Z" fill="#cbb48c"/>
+  <!-- spines along the back -->
+  <path d="M130 104 L138 88 L146 100 L156 86 L164 98 L176 84 L184 98 L198 86 L204 102 L218 92 L222 108 Z" fill="#2b0606"/>
+  <!-- eye -->
+  <circle cx="46" cy="104" r="9" fill="url(#eye)"/>
+  <circle cx="46" cy="104" r="2.5" fill="#fff6b0"/>
+</svg>
