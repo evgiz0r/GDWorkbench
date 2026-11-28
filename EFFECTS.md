@@ -112,6 +112,12 @@ Checked on 8 rated 2.2 levels from the PC's local/community (2026-11-26), counte
 - pulse 1006: 7-9 rgb, 45 / 46 / 47 fade in / hold / fade out, 52 group (1) or channel (0), 48 HSV mode, 210 (on 87% of
   them, meaning unknown).
 
+## Used in
+
+- `tools/hellgate_ending.js` (HELLGATE.md): a whole animation from these triggers -- a stage locked to the player's x,
+  pieces that fly in and land ON a beat (move, exponential in 11, started `secs` before the beat), a ring turned about a
+  centre object that rides with the stage, alpha chases, colour 899 on the sky. Pattern for any no-gameplay scene.
+
 ## Open
 
 - Evgeni on v1: "the control is nice", "the quality is still lacking". v2 = the numbers above; his look at v2 in the game.
